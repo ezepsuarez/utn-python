@@ -1,0 +1,11 @@
+notas curso python
+sabado 17 10:45 sole
+
+30-07-2022
+
+pypi.org (modulos de python)
+scapy
+micropython
+elementos finitos
+
+zodb base de datos de objetos

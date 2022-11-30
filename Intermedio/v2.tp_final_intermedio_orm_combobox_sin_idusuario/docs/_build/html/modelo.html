@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modelo module &mdash; MiApp-Nivel-Intermedio 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vista module" href="vista.html" />
+    <link rel="prev" title="controlador module" href="controlador.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MiApp-Nivel-Intermedio
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">controlador module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">modelo module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.Abm"><code class="docutils literal notranslate"><span class="pre">Abm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Abm.carga_categoria"><code class="docutils literal notranslate"><span class="pre">Abm.carga_categoria()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Abm.dar_id_categoria"><code class="docutils literal notranslate"><span class="pre">Abm.dar_id_categoria()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Abm.funcion_consultar"><code class="docutils literal notranslate"><span class="pre">Abm.funcion_consultar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Abm.funcion_eliminar"><code class="docutils literal notranslate"><span class="pre">Abm.funcion_eliminar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Abm.funcion_grabar"><code class="docutils literal notranslate"><span class="pre">Abm.funcion_grabar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Abm.funcion_guardar_cambio"><code class="docutils literal notranslate"><span class="pre">Abm.funcion_guardar_cambio()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Abm.funcion_modificar"><code class="docutils literal notranslate"><span class="pre">Abm.funcion_modificar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Abm.poblar_categoria"><code class="docutils literal notranslate"><span class="pre">Abm.poblar_categoria()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.BaseModel.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">BaseModel.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.BaseModel.id"><code class="docutils literal notranslate"><span class="pre">BaseModel.id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.Categoria"><code class="docutils literal notranslate"><span class="pre">Categoria</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Categoria.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Categoria.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Categoria.descripcion_categoria"><code class="docutils literal notranslate"><span class="pre">Categoria.descripcion_categoria</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Categoria.id"><code class="docutils literal notranslate"><span class="pre">Categoria.id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.Pantalla"><code class="docutils literal notranslate"><span class="pre">Pantalla</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Pantalla.funcion_blanquear"><code class="docutils literal notranslate"><span class="pre">Pantalla.funcion_blanquear()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.Persona"><code class="docutils literal notranslate"><span class="pre">Persona</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.RegistroLogError"><code class="docutils literal notranslate"><span class="pre">RegistroLogError</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.RegistroLogError.BASE_DIR"><code class="docutils literal notranslate"><span class="pre">RegistroLogError.BASE_DIR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.RegistroLogError.registrar_error"><code class="docutils literal notranslate"><span class="pre">RegistroLogError.registrar_error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.RegistroLogError.ruta"><code class="docutils literal notranslate"><span class="pre">RegistroLogError.ruta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.Usuario"><code class="docutils literal notranslate"><span class="pre">Usuario</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Usuario.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Usuario.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Usuario.apellido"><code class="docutils literal notranslate"><span class="pre">Usuario.apellido</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Usuario.id"><code class="docutils literal notranslate"><span class="pre">Usuario.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Usuario.mail"><code class="docutils literal notranslate"><span class="pre">Usuario.mail</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Usuario.nombre"><code class="docutils literal notranslate"><span class="pre">Usuario.nombre</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Usuario.preferencia"><code class="docutils literal notranslate"><span class="pre">Usuario.preferencia</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Usuario.sexo"><code class="docutils literal notranslate"><span class="pre">Usuario.sexo</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.Validacion"><code class="docutils literal notranslate"><span class="pre">Validacion</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Validacion.funcion_validar_datos"><code class="docutils literal notranslate"><span class="pre">Validacion.funcion_validar_datos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Validacion.funcion_validar_mail"><code class="docutils literal notranslate"><span class="pre">Validacion.funcion_validar_mail()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Validacion.funcion_validar_nombre"><code class="docutils literal notranslate"><span class="pre">Validacion.funcion_validar_nombre()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vista.html">vista module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MiApp-Nivel-Intermedio</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">modelo module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modelo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-modelo">
+<span id="modelo-module"></span><h1>modelo module<a class="headerlink" href="#module-modelo" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Abm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Abm</span></span><a class="reference internal" href="_modules/modelo.html#Abm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abm.carga_categoria">
+<span class="sig-name descname"><span class="pre">carga_categoria</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.carga_categoria"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.carga_categoria" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abm.dar_id_categoria">
+<span class="sig-name descname"><span class="pre">dar_id_categoria</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">categoriabuscada</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.dar_id_categoria"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.dar_id_categoria" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abm.funcion_consultar">
+<span class="sig-name descname"><span class="pre">funcion_consultar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.funcion_consultar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.funcion_consultar" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abm.funcion_eliminar">
+<span class="sig-name descname"><span class="pre">funcion_eliminar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.funcion_eliminar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.funcion_eliminar" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abm.funcion_grabar">
+<span class="sig-name descname"><span class="pre">funcion_grabar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.funcion_grabar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.funcion_grabar" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abm.funcion_guardar_cambio">
+<span class="sig-name descname"><span class="pre">funcion_guardar_cambio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.funcion_guardar_cambio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.funcion_guardar_cambio" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abm.funcion_modificar">
+<span class="sig-name descname"><span class="pre">funcion_modificar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.funcion_modificar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.funcion_modificar" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abm.poblar_categoria">
+<span class="sig-name descname"><span class="pre">poblar_categoria</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.poblar_categoria"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.poblar_categoria" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.BaseModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">BaseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#BaseModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.BaseModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.BaseModel.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#modelo.BaseModel.DoesNotExist" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.BaseModel.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">BaseModel.id&gt;</span></em><a class="headerlink" href="#modelo.BaseModel.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Categoria">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Categoria</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Categoria"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Categoria" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelo.BaseModel" title="modelo.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Categoria.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#modelo.Categoria.DoesNotExist" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">CategoriaDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Categoria.descripcion_categoria">
+<span class="sig-name descname"><span class="pre">descripcion_categoria</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Categoria.descripcion_categoria&gt;</span></em><a class="headerlink" href="#modelo.Categoria.descripcion_categoria" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Categoria.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">Categoria.id&gt;</span></em><a class="headerlink" href="#modelo.Categoria.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Pantalla">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Pantalla</span></span><a class="reference internal" href="_modules/modelo.html#Pantalla"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Pantalla" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Pantalla.funcion_blanquear">
+<span class="sig-name descname"><span class="pre">funcion_blanquear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Pantalla.funcion_blanquear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Pantalla.funcion_blanquear" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Persona">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Persona</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Persona"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Persona" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="modelo.RegistroLogError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">RegistroLogError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archivo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fecha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#RegistroLogError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.RegistroLogError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.RegistroLogError.BASE_DIR">
+<span class="sig-name descname"><span class="pre">BASE_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'C:\\Users\\l1000296\\Dropbox\\Learning-Utn-Aws\\Python\\Intermedio\\v2.tp_final_intermedio_orm_combobox_sin_idusuario'</span></em><a class="headerlink" href="#modelo.RegistroLogError.BASE_DIR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.RegistroLogError.registrar_error">
+<span class="sig-name descname"><span class="pre">registrar_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#RegistroLogError.registrar_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.RegistroLogError.registrar_error" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.RegistroLogError.ruta">
+<span class="sig-name descname"><span class="pre">ruta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'C:\\Users\\l1000296\\Dropbox\\Learning-Utn-Aws\\Python\\Intermedio\\v2.tp_final_intermedio_orm_combobox_sin_idusuario\\log_abm_usuario.txt'</span></em><a class="headerlink" href="#modelo.RegistroLogError.ruta" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Usuario">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Usuario</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Usuario"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Usuario" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelo.BaseModel" title="modelo.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Usuario.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#modelo.Usuario.DoesNotExist" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">UsuarioDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Usuario.apellido">
+<span class="sig-name descname"><span class="pre">apellido</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Usuario.apellido&gt;</span></em><a class="headerlink" href="#modelo.Usuario.apellido" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Usuario.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">Usuario.id&gt;</span></em><a class="headerlink" href="#modelo.Usuario.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Usuario.mail">
+<span class="sig-name descname"><span class="pre">mail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Usuario.mail&gt;</span></em><a class="headerlink" href="#modelo.Usuario.mail" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Usuario.nombre">
+<span class="sig-name descname"><span class="pre">nombre</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Usuario.nombre&gt;</span></em><a class="headerlink" href="#modelo.Usuario.nombre" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Usuario.preferencia">
+<span class="sig-name descname"><span class="pre">preferencia</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Usuario.preferencia&gt;</span></em><a class="headerlink" href="#modelo.Usuario.preferencia" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Usuario.sexo">
+<span class="sig-name descname"><span class="pre">sexo</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;FixedCharField:</span> <span class="pre">Usuario.sexo&gt;</span></em><a class="headerlink" href="#modelo.Usuario.sexo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Validacion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Validacion</span></span><a class="reference internal" href="_modules/modelo.html#Validacion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Validacion" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Validacion.funcion_validar_datos">
+<span class="sig-name descname"><span class="pre">funcion_validar_datos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Validacion.funcion_validar_datos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Validacion.funcion_validar_datos" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Validacion.funcion_validar_mail">
+<span class="sig-name descname"><span class="pre">funcion_validar_mail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mail</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Validacion.funcion_validar_mail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Validacion.funcion_validar_mail" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Validacion.funcion_validar_nombre">
+<span class="sig-name descname"><span class="pre">funcion_validar_nombre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Validacion.funcion_validar_nombre"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Validacion.funcion_validar_nombre" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="controlador.html" class="btn btn-neutral float-left" title="controlador module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vista.html" class="btn btn-neutral float-right" title="vista module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Ezequiel Suarez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

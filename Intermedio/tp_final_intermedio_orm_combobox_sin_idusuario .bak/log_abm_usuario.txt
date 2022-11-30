@@ -1,0 +1,1 @@
+2022-11-24 09:37:20.724676 - ERROR -  modelo.py->linea 75 Error al registrar usuario Detalle Error: UNIQUE constraint failed: usuario.mail

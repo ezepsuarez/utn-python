@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modelo &mdash; MiApp-Nivel-Intermedio 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MiApp-Nivel-Intermedio
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../controlador.html">controlador module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelo.html">modelo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vista.html">vista module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MiApp-Nivel-Intermedio</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">modelo</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for modelo</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">tkinter.messagebox</span> <span class="kn">import</span> <span class="n">askyesno</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">turtle</span> <span class="kn">import</span> <span class="n">bgcolor</span><span class="p">,</span> <span class="n">color</span> 
+<span class="kn">from</span> <span class="nn">peewee</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">SqliteDatabase</span><span class="p">(</span><span class="s2">&quot;bd_tp_final_intermedio.db&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="BaseModel"><a class="viewcode-back" href="../modelo.html#modelo.BaseModel">[docs]</a><span class="k">class</span> <span class="nc">BaseModel</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">database</span> <span class="o">=</span> <span class="n">db</span></div>
+
+
+<div class="viewcode-block" id="Usuario"><a class="viewcode-back" href="../modelo.html#modelo.Usuario">[docs]</a><span class="k">class</span> <span class="nc">Usuario</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">mail</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">nombre</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">apellido</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">sexo</span> <span class="o">=</span> <span class="n">FixedCharField</span><span class="p">()</span>
+    <span class="n">preferencia</span> <span class="o">=</span> <span class="n">IntegerField</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Categoria"><a class="viewcode-back" href="../modelo.html#modelo.Categoria">[docs]</a><span class="k">class</span> <span class="nc">Categoria</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">descripcion_categoria</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<span class="n">db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="n">db</span><span class="o">.</span><span class="n">create_tables</span><span class="p">([</span><span class="n">Usuario</span><span class="p">])</span>
+<span class="n">db</span><span class="o">.</span><span class="n">create_tables</span><span class="p">([</span><span class="n">Categoria</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="RegistroLogError"><a class="viewcode-back" href="../modelo.html#modelo.RegistroLogError">[docs]</a><span class="k">class</span> <span class="nc">RegistroLogError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+
+    <span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">((</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+    <span class="n">ruta</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;log_abm_usuario.txt&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linea</span><span class="p">,</span> <span class="n">archivo</span><span class="p">,</span> <span class="n">fecha</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linea</span> <span class="o">=</span> <span class="n">linea</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">archivo</span> <span class="o">=</span> <span class="n">archivo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fecha</span> <span class="o">=</span> <span class="n">fecha</span>
+
+<div class="viewcode-block" id="RegistroLogError.registrar_error"><a class="viewcode-back" href="../modelo.html#modelo.RegistroLogError.registrar_error">[docs]</a>    <span class="k">def</span> <span class="nf">registrar_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
+        <span class="n">log</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ruta</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fecha</span><span class="p">,</span> <span class="s2">&quot;- ERROR - &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">archivo</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">linea</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Detalle Error: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">log</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Persona"><a class="viewcode-back" href="../modelo.html#modelo.Persona">[docs]</a><span class="k">class</span> <span class="nc">Persona</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mail</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="p">,</span> <span class="n">sexo</span><span class="p">,</span> <span class="n">preferencia</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mail</span> <span class="o">=</span> <span class="n">mail</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apellido</span> <span class="o">=</span> <span class="n">apellido</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sexo</span> <span class="o">=</span> <span class="n">sexo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">preferencia</span> <span class="o">=</span> <span class="n">preferencia</span></div>
+
+
+<div class="viewcode-block" id="Abm"><a class="viewcode-back" href="../modelo.html#modelo.Abm">[docs]</a><span class="k">class</span> <span class="nc">Abm</span><span class="p">():</span>
+<div class="viewcode-block" id="Abm.funcion_grabar"><a class="viewcode-back" href="../modelo.html#modelo.Abm.funcion_grabar">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_grabar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">):</span>
+        <span class="n">datospersona</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="n">var_mail</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_nombre</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_apellido</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_sexo</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_preferencia</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+        <span class="n">resultado</span> <span class="o">=</span> <span class="n">Validacion</span><span class="p">()</span>
+        <span class="n">respuesta</span> <span class="o">=</span> <span class="n">resultado</span><span class="o">.</span><span class="n">funcion_validar_datos</span><span class="p">(</span><span class="n">datospersona</span><span class="o">.</span><span class="n">mail</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">apellido</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">sexo</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">preferencia</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">respuesta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>                
+                <span class="n">usuario</span> <span class="o">=</span> <span class="n">Usuario</span><span class="p">()</span>
+                <span class="n">usuario</span><span class="o">.</span><span class="n">mail</span> <span class="o">=</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">mail</span>
+                <span class="n">usuario</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">nombre</span>
+                <span class="n">usuario</span><span class="o">.</span><span class="n">apellido</span> <span class="o">=</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">apellido</span>
+                <span class="n">usuario</span><span class="o">.</span><span class="n">sexo</span> <span class="o">=</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">sexo</span>
+                <span class="n">usuario</span><span class="o">.</span><span class="n">preferencia</span> <span class="o">=</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">preferencia</span>
+                <span class="n">usuario</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+                <span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="n">datospersona</span><span class="o">.</span><span class="n">mail</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">apellido</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">sexo</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">preferencia</span><span class="p">))</span>
+                <span class="n">blanqueo</span> <span class="o">=</span> <span class="n">Pantalla</span><span class="p">()</span>
+                <span class="n">blanqueo</span><span class="o">.</span><span class="n">funcion_blanquear</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;Se registro un nuevo usuario&#39;</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+                <span class="n">log</span> <span class="o">=</span> <span class="n">RegistroLogError</span><span class="p">(</span><span class="s2">&quot;Error al registrar usuario&quot;</span><span class="p">,</span><span class="s2">&quot;modelo.py-&gt;linea 75&quot;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">registrar_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">respuesta</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">respuesta</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span></div>
+
+<div class="viewcode-block" id="Abm.poblar_categoria"><a class="viewcode-back" href="../modelo.html#modelo.Abm.poblar_categoria">[docs]</a>    <span class="k">def</span> <span class="nf">poblar_categoria</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="n">lista_categoria</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Viajes&#39;</span><span class="p">,</span><span class="s1">&#39;Moda&#39;</span><span class="p">,</span><span class="s1">&#39;Motos&#39;</span><span class="p">,</span><span class="s1">&#39;Autos&#39;</span><span class="p">,</span><span class="s1">&#39;Noticias&#39;</span><span class="p">,</span><span class="s1">&#39;Juegos&#39;</span><span class="p">,</span><span class="s1">&#39;Deportes&#39;</span><span class="p">,</span><span class="s1">&#39;Comidas&#39;</span><span class="p">,</span><span class="s1">&#39;Compras&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lista_categoria</span><span class="p">:</span>
+            <span class="n">categoria</span> <span class="o">=</span> <span class="n">Categoria</span><span class="p">()</span>
+            <span class="n">categoria</span><span class="o">.</span><span class="n">descripcion_categoria</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">categoria</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+                <span class="n">log</span> <span class="o">=</span> <span class="n">RegistroLogError</span><span class="p">(</span><span class="s2">&quot;Error al cargar categorias&quot;</span><span class="p">,</span><span class="s2">&quot;modelo.py-&gt;linea 87&quot;</span><span class="p">,</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">registrar_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Abm.carga_categoria"><a class="viewcode-back" href="../modelo.html#modelo.Abm.carga_categoria">[docs]</a>    <span class="k">def</span> <span class="nf">carga_categoria</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="n">categoria</span> <span class="o">=</span> <span class="n">Categoria</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">categoria</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">poblar_categoria</span><span class="p">()</span>
+            <span class="n">categoria</span> <span class="o">=</span> <span class="n">Categoria</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">categoria</span></div>
+
+<div class="viewcode-block" id="Abm.dar_id_categoria"><a class="viewcode-back" href="../modelo.html#modelo.Abm.dar_id_categoria">[docs]</a>    <span class="k">def</span> <span class="nf">dar_id_categoria</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">categoriabuscada</span><span class="p">):</span>
+        <span class="n">sql</span> <span class="o">=</span> <span class="n">Categoria</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">Categoria</span><span class="o">.</span><span class="n">descripcion_categoria</span> <span class="o">==</span> <span class="n">categoriabuscada</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">sql</span></div>
+
+<div class="viewcode-block" id="Abm.funcion_consultar"><a class="viewcode-back" href="../modelo.html#modelo.Abm.funcion_consultar">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_consultar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">get_children</span><span class="p">():</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">var_nombre</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">var_mail</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">var_apellido</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">var_sexo</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">var_preferencia</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="p">):</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="p">(</span><span class="n">Usuario</span><span class="o">.</span><span class="n">select</span><span class="p">(</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">mail</span><span class="p">,</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">apellido</span><span class="p">,</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">sexo</span><span class="p">,</span> <span class="n">Categoria</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">),</span> <span class="n">Categoria</span><span class="o">.</span><span class="n">descripcion_categoria</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;preferencia&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Categoria</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">(</span><span class="n">Usuario</span><span class="o">.</span><span class="n">preferencia</span> <span class="o">==</span> <span class="n">Categoria</span><span class="o">.</span><span class="n">id</span><span class="p">))</span><span class="o">.</span><span class="n">objects</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span> <span class="p">(</span><span class="n">Usuario</span><span class="o">.</span><span class="n">mail</span> <span class="o">==</span> <span class="n">var_mail</span><span class="o">.</span><span class="n">get</span><span class="p">())</span> <span class="o">|</span> <span class="p">(</span><span class="n">Usuario</span><span class="o">.</span><span class="n">nombre</span> <span class="o">==</span> <span class="n">var_nombre</span><span class="o">.</span><span class="n">get</span><span class="p">())</span> <span class="o">|</span> <span class="p">(</span><span class="n">Usuario</span><span class="o">.</span><span class="n">apellido</span> <span class="o">==</span> <span class="n">var_apellido</span><span class="o">.</span><span class="n">get</span><span class="p">()))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s2">&quot;No se encontro un resultado&quot;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sql</span><span class="p">:</span>
+                <span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">mail</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">apellido</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">sexo</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">preferencia</span><span class="p">))</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;OK&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Abm.funcion_eliminar"><a class="viewcode-back" href="../modelo.html#modelo.Abm.funcion_eliminar">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_eliminar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;Debe seleccion un usuario a eliminar&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">askyesno</span><span class="p">(</span><span class="s2">&quot;Eliminacion de usuario&quot;</span><span class="p">,</span> <span class="s2">&quot;Esta por eliminar este usuario, desea continuar?&quot;</span><span class="p">):</span>
+            <span class="nb">id</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">borrar</span> <span class="o">=</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Usuario</span><span class="o">.</span><span class="n">mail</span> <span class="o">==</span> <span class="nb">id</span><span class="p">)</span>
+                <span class="n">borrar</span><span class="o">.</span><span class="n">delete_instance</span><span class="p">()</span>
+                <span class="n">pantalla</span> <span class="o">=</span> <span class="n">Pantalla</span><span class="p">()</span>
+                <span class="n">pantalla</span><span class="o">.</span><span class="n">funcion_blanquear</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">funcion_consultar</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;Se elimino el usuario&#39;</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+                <span class="n">log</span> <span class="o">=</span> <span class="n">RegistroLogError</span><span class="p">(</span><span class="s2">&quot;Error al eliminar un usuario&quot;</span><span class="p">,</span><span class="s2">&quot;modelo.py-&gt;linea 125&quot;</span><span class="p">,</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">registrar_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Abm.funcion_modificar"><a class="viewcode-back" href="../modelo.html#modelo.Abm.funcion_modificar">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_modificar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">mail</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="p">,</span> <span class="n">sexo</span><span class="p">,</span> <span class="n">preferencia</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;Debe seleccion un usuario a modificar&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mail</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+            <span class="n">nombre</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="s1">&#39;values&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">apellido</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="s1">&#39;values&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">sexo</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="s1">&#39;values&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="s1">&#39;values&#39;</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> 
+            <span class="n">sql</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dar_id_categoria</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sql</span><span class="p">:</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">id</span>
+            <span class="n">preferencia</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;ok&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Abm.funcion_guardar_cambio"><a class="viewcode-back" href="../modelo.html#modelo.Abm.funcion_guardar_cambio">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_guardar_cambio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span>
+        <span class="n">datospersona</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="n">var_mail</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_nombre</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_apellido</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_sexo</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_preferencia</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+        <span class="n">valor</span> <span class="o">=</span> <span class="n">Validacion</span><span class="p">()</span>
+        <span class="n">respuesta</span> <span class="o">=</span> <span class="n">valor</span><span class="o">.</span><span class="n">funcion_validar_datos</span><span class="p">(</span><span class="n">datospersona</span><span class="o">.</span><span class="n">mail</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">apellido</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">sexo</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">preferencia</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">respuesta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">actualizar</span> <span class="o">=</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mail</span><span class="o">=</span><span class="n">datospersona</span><span class="o">.</span><span class="n">mail</span><span class="p">,</span> <span class="n">nombre</span><span class="o">=</span><span class="n">datospersona</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="o">=</span><span class="n">datospersona</span><span class="o">.</span><span class="n">apellido</span><span class="p">,</span> <span class="n">sexo</span><span class="o">=</span><span class="n">datospersona</span><span class="o">.</span><span class="n">sexo</span><span class="p">,</span> <span class="n">preferencia</span><span class="o">=</span><span class="n">datospersona</span><span class="o">.</span><span class="n">preferencia</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Usuario</span><span class="o">.</span><span class="n">mail</span><span class="o">==</span><span class="nb">id</span><span class="p">)</span>
+                <span class="n">actualizar</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+                <span class="n">pantalla</span> <span class="o">=</span> <span class="n">Pantalla</span><span class="p">()</span>
+                <span class="n">pantalla</span><span class="o">.</span><span class="n">funcion_blanquear</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">funcion_consultar</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s2">&quot;Se han actualizado los datos&quot;</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+                <span class="n">log</span> <span class="o">=</span> <span class="n">RegistroLogError</span><span class="p">(</span><span class="s2">&quot;Error al actualizar datos de usuarios&quot;</span><span class="p">,</span><span class="s2">&quot;modelo.py-&gt;linea 166&quot;</span><span class="p">,</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">registrar_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">respuesta</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">respuesta</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span></div></div>
+
+<div class="viewcode-block" id="Validacion"><a class="viewcode-back" href="../modelo.html#modelo.Validacion">[docs]</a><span class="k">class</span> <span class="nc">Validacion</span><span class="p">():</span>
+<div class="viewcode-block" id="Validacion.funcion_validar_nombre"><a class="viewcode-back" href="../modelo.html#modelo.Validacion.funcion_validar_nombre">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_validar_nombre</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">):</span>
+        <span class="n">patron</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[A-Za-z]+(?:[ _-][A-Za-z]+)*$&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">patron</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">nombre</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;OK&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="s1">&#39;El nombre ingresado no puede contener numeros&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Validacion.funcion_validar_mail"><a class="viewcode-back" href="../modelo.html#modelo.Validacion.funcion_validar_mail">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_validar_mail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mail</span><span class="p">):</span>
+        <span class="n">patron</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(&lt;)?(\w+@\w+(?:\.[a-z]+)+)(?(1)&gt;|$)&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">patron</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">mail</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;OK&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;El email ingresado no esta en el formato esperado </span><span class="se">\n</span><span class="s1">Formato: user@domino.com&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Validacion.funcion_validar_datos"><a class="viewcode-back" href="../modelo.html#modelo.Validacion.funcion_validar_datos">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_validar_datos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mail</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="p">,</span> <span class="n">sexo</span><span class="p">,</span> <span class="n">preferencia</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">nombre</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">mail</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">apellido</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">sexo</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">preferencia</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="s1">&#39;Falta ingresar datos obligatorios</span><span class="se">\n</span><span class="s1"> Datos obligatorios: [Email - Nombre - Apellido - Sexo - Preferencia].&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>  
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">funcion_validar_mail</span><span class="p">(</span><span class="n">mail</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;1&#39;</span><span class="p">):</span>
+                <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="s1">&#39;El main ingresado esta en formato invalido, debe ser usuario@dominio.com&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>           
+                <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">funcion_validar_nombre</span><span class="p">(</span><span class="n">nombre</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;1&#39;</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="s1">&#39;El nombre no puede contener numeros&#39;</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;OK&#39;</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Pantalla"><a class="viewcode-back" href="../modelo.html#modelo.Pantalla">[docs]</a><span class="k">class</span> <span class="nc">Pantalla</span><span class="p">():</span>
+<div class="viewcode-block" id="Pantalla.funcion_blanquear"><a class="viewcode-back" href="../modelo.html#modelo.Pantalla.funcion_blanquear">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_blanquear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">):</span>
+        <span class="n">var_mail</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">var_nombre</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">var_apellido</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">var_sexo</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">var_preferencia</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">consulta</span> <span class="o">=</span> <span class="n">Abm</span><span class="p">()</span>
+        <span class="n">consulta</span><span class="o">.</span><span class="n">funcion_consultar</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Ezequiel Suarez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

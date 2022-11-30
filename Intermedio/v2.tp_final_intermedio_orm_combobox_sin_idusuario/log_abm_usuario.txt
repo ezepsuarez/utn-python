@@ -1,0 +1,19 @@
+2022-11-24 09:37:20.724676 - ERROR -  modelo.py->linea 75 Error al registrar usuario Detalle Error: UNIQUE constraint failed: usuario.mail
+2022-11-29 22:22:41.674261 - ERROR -  modelo.py->linea 75 Error al registrar usuario Detalle Error: UNIQUE constraint failed: usuario.mail
+2022-11-29 22:27:59.337492 - ERROR -  modelo.py->linea 75 Error al registrar usuario Detalle Error: UNIQUE constraint failed: usuario.mail
+2022-11-29 22:29:40.996086 - ERROR -  modelo.py->linea 75 Error al registrar usuario Detalle Error: UNIQUE constraint failed: usuario.mail
+2022-11-29 23:45:15.834378 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: name 'boton_guardar_cambio' is not defined
+2022-11-29 23:45:21.472812 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: name 'boton_guardar_cambio' is not defined
+2022-11-29 23:50:37.390297 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: name 'boton_guardar_cambio' is not defined
+2022-11-29 23:54:06.641089 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: name 'boton_guardar_cambio' is not defined
+2022-11-29 23:54:30.498049 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: name 'boton_guardar_cambio' is not defined
+2022-11-29 23:55:56.324173 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: 'Entry' object has no attribute 'set'
+2022-11-29 23:56:23.489392 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: 'Entry' object has no attribute 'set'
+2022-11-29 23:56:53.380625 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: 'Entry' object has no attribute 'set'
+2022-11-29 23:57:31.489172 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: 'Entry' object has no attribute 'set'
+2022-11-29 23:58:46.916867 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: 'Entry' object has no attribute 'set'
+2022-11-30 00:01:49.300611 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: 'Entry' object has no attribute 'set'
+2022-11-30 11:22:44.523217 - ERROR -  modelo.py->linea 166 Error al actualizar datos de usuarios Detalle Error: name 'boton_cancelar' is not defined
+2022-11-30 12:27:03.794824 - ERROR -  modelo.py->linea 75 Error al registrar usuario Detalle Error: UNIQUE constraint failed: usuario.mail
+2022-11-30 12:28:12.861732 - ERROR -  modelo.py->linea 75 Error al registrar usuario Detalle Error: UNIQUE constraint failed: usuario.mail
+2022-11-30 12:59:59.315006 - ERROR -  modelo.py->linea 75 Error al registrar usuario Detalle Error: UNIQUE constraint failed: usuario.mail
