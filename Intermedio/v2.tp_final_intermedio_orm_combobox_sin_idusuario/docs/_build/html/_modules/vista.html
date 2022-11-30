@@ -90,7 +90,13 @@
 
 
 <div class="viewcode-block" id="VistaAplicacion"><a class="viewcode-back" href="../vista.html#vista.VistaAplicacion">[docs]</a><span class="k">class</span> <span class="nc">VistaAplicacion</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clase de aplicacion arma la ventana y los campos que seran mostrados</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor de la ventana</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">master</span> <span class="o">=</span> <span class="n">window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Aplicacion Entrega Final - Intermedio&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Abm</span><span class="p">()</span>
@@ -146,6 +152,9 @@
             <span class="n">lista_cat</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2"> --&gt; &quot;</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">descripcion_categoria</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">id</span>
 
         <span class="k">def</span> <span class="nf">mycat</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Metodo que carga los datos en el combo</span>
+<span class="sd">            &quot;&quot;&quot;</span>
             <span class="n">z</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">var_preferencia</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
             <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lista_cat</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">z</span><span class="p">):</span>
@@ -169,20 +178,19 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;col4&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">minwidth</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="s2">&quot;col4&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Preferencia&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-        <span class="c1">#boton_grabar = Button(master, text=&quot; Alta &quot;, bg=&quot;#326DDC&quot;, command=lambda: self.obj.funcion_grabar(self.tree, self.var_mail, self.var_nombre, self.var_apellido, self.var_sexo, self.var_preferencia), width=10)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton_grabar</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot; Alta &quot;</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#326DDC&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_guardar</span><span class="p">(),</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton_grabar</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
-        <span class="c1">#boton_eliminar = Button(master, text=&quot; Baja &quot;, bg=&quot;#DC3232&quot;, command=lambda: self.obj.funcion_eliminar(self.tree, self.var_mail, self.var_nombre, self.var_apellido, self.var_sexo, self.var_preferencia), width=10)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton_eliminar</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot; Baja &quot;</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#DC3232&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_eliminar</span><span class="p">(),</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton_eliminar</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton_consultar</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot; Consulta &quot;</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_consultar</span><span class="p">(),</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-        <span class="c1">#boton_consultar = Button(master, text=&quot; Consulta &quot;, bg=&quot;grey&quot;, command=lambda: self.obj.funcion_consultar(self.tree, self.var_mail, self.var_nombre, self.var_apellido, self.var_sexo, self.var_preferencia), width=10)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton_consultar</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
-        <span class="c1">#boton_modificacion = Button(master, text=&quot; Modificar&quot;, bg=&quot;grey&quot;, command=lambda: self.obj.funcion_modificar(self.tree, self.master, self.var_mail, self.var_nombre, self.var_apellido, self.var_sexo, self.var_preferencia, boton_eliminar, boton_grabar, boton_consultar, boton_modificacion), width=10)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton_modificacion</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot; Modificar&quot;</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_modificar</span><span class="p">(),</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton_modificacion</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="VistaAplicacion.admin_guardar"><a class="viewcode-back" href="../vista.html#vista.VistaAplicacion.admin_guardar">[docs]</a>    <span class="k">def</span> <span class="nf">admin_guardar</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo administrador que invoca al metodo que guarda los datos </span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">respuesta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">funcion_grabar</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">var_mail</span><span class="p">,</span>
@@ -197,6 +205,9 @@
             <span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;Alta usuario&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">respuesta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="VistaAplicacion.admin_eliminar"><a class="viewcode-back" href="../vista.html#vista.VistaAplicacion.admin_eliminar">[docs]</a>    <span class="k">def</span> <span class="nf">admin_eliminar</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo administrador que invoca al metodo que elimina los datos </span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">respuesta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">funcion_eliminar</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">var_mail</span><span class="p">,</span>
@@ -211,6 +222,9 @@
             <span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;Eliminacion usuario&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">respuesta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
     
 <div class="viewcode-block" id="VistaAplicacion.admin_consultar"><a class="viewcode-back" href="../vista.html#vista.VistaAplicacion.admin_consultar">[docs]</a>    <span class="k">def</span> <span class="nf">admin_consultar</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo administrador que invoca al metodo que consilta los datos </span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">respuesta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">funcion_consultar</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">var_mail</span><span class="p">,</span>
@@ -223,6 +237,9 @@
             <span class="n">showinfo</span><span class="p">(</span><span class="s2">&quot;Busqueda&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">respuesta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="VistaAplicacion.admin_modificar"><a class="viewcode-back" href="../vista.html#vista.VistaAplicacion.admin_modificar">[docs]</a>    <span class="k">def</span> <span class="nf">admin_modificar</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo administrador que invoca al metodo que realiza la modificacion de los datos </span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">respuesta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">funcion_modificar</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">,</span> 
                     <span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="p">,</span> 
@@ -241,6 +258,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">boton_guardar_cambio</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">)</span></div>
     
 <div class="viewcode-block" id="VistaAplicacion.admin_guardar_cambio"><a class="viewcode-back" href="../vista.html#vista.VistaAplicacion.admin_guardar_cambio">[docs]</a>    <span class="k">def</span> <span class="nf">admin_guardar_cambio</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo administrador que invoca al metodo que guarda los cambio en los datos </span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">respuesta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">funcion_guardar_cambio</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">,</span> 
                     <span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="p">,</span> 
@@ -262,6 +282,9 @@
             <span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;Modificacion usuario&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">respuesta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="VistaAplicacion.admin_cancelar"><a class="viewcode-back" href="../vista.html#vista.VistaAplicacion.admin_cancelar">[docs]</a>    <span class="k">def</span> <span class="nf">admin_cancelar</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo administrador que invoca al metodo que permite cancelar la accion de modificacion </span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">blanqueo</span><span class="o">=</span><span class="n">Pantalla</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton_cancelar</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton_guardar_cambio</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span>

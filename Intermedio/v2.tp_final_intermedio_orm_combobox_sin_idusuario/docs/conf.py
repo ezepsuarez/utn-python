@@ -11,8 +11,8 @@ import sys
 sys.path.insert(0, os.path.abspath('../'))
 
 project = 'MiApp-Nivel-Intermedio'
-copyright = '2022, Ezequiel Suarez'
-author = 'Ezequiel Suarez'
+copyright = '2022, Ezequiel Suarez / Cesar Mariño'
+author = 'Ezequiel Suarez / Cesar Mariño'
 
 version = '0.0.1'
 release = '0.0.1'

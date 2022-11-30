@@ -17,7 +17,13 @@ from tkinter.messagebox import showwarning
 
 
 class VistaAplicacion():
+    """
+    Clase de aplicacion arma la ventana y los campos que seran mostrados
+    """
     def __init__(self, window) -> None:
+        """
+        Constructor de la ventana
+        """
         self.master = window
         self.master.title("Aplicacion Entrega Final - Intermedio")
         self.obj = Abm()
@@ -73,6 +79,9 @@ class VistaAplicacion():
             lista_cat[f"{row.id} --> " f"{row.descripcion_categoria}"] = row.id
 
         def mycat(*args):
+            """
+            Metodo que carga los datos en el combo
+            """
             z=self.var_preferencia.get()
             for key, i in lista_cat.items():
                 if (key == z):
@@ -96,20 +105,19 @@ class VistaAplicacion():
         self.tree.column("col4", width=100, minwidth=100, anchor="w")
         self.tree.heading("col4", text="Preferencia")
         self.tree.grid(row=12, column=0, columnspan=5,padx=5,pady=15)
-        #boton_grabar = Button(master, text=" Alta ", bg="#326DDC", command=lambda: self.obj.funcion_grabar(self.tree, self.var_mail, self.var_nombre, self.var_apellido, self.var_sexo, self.var_preferencia), width=10)
         self.boton_grabar = Button(master, text=" Alta ", bg="#326DDC", command=lambda: self.admin_guardar(), width=10)
         self.boton_grabar.grid(row=3, column=3, sticky='W')
-        #boton_eliminar = Button(master, text=" Baja ", bg="#DC3232", command=lambda: self.obj.funcion_eliminar(self.tree, self.var_mail, self.var_nombre, self.var_apellido, self.var_sexo, self.var_preferencia), width=10)
         self.boton_eliminar = Button(master, text=" Baja ", bg="#DC3232", command=lambda: self.admin_eliminar(), width=10)
         self.boton_eliminar.grid(row=4, column=3, sticky='W')
         self.boton_consultar = Button(master, text=" Consulta ", bg="grey", command=lambda: self.admin_consultar(), width=10)
-        #boton_consultar = Button(master, text=" Consulta ", bg="grey", command=lambda: self.obj.funcion_consultar(self.tree, self.var_mail, self.var_nombre, self.var_apellido, self.var_sexo, self.var_preferencia), width=10)
         self.boton_consultar.grid(row=3, column=4, sticky='W')
-        #boton_modificacion = Button(master, text=" Modificar", bg="grey", command=lambda: self.obj.funcion_modificar(self.tree, self.master, self.var_mail, self.var_nombre, self.var_apellido, self.var_sexo, self.var_preferencia, boton_eliminar, boton_grabar, boton_consultar, boton_modificacion), width=10)
         self.boton_modificacion = Button(master, text=" Modificar", bg="grey", command=lambda: self.admin_modificar(), width=10)
         self.boton_modificacion.grid(row=4, column=4, sticky='W')
 
     def admin_guardar(self,):
+        """
+        Metodo administrador que invoca al metodo que guarda los datos 
+        """
         respuesta = self.obj.funcion_grabar(
                     self.tree,
                     self.var_mail,
@@ -124,6 +132,9 @@ class VistaAplicacion():
             showwarning("Alta usuario", f"{respuesta[1]}")
 
     def admin_eliminar(self,):
+        """
+        Metodo administrador que invoca al metodo que elimina los datos 
+        """
         respuesta = self.obj.funcion_eliminar(
                     self.tree,
                     self.var_mail,
@@ -136,8 +147,11 @@ class VistaAplicacion():
             showinfo("Eliminacion usuario", f"{respuesta[1]}")
         else:
             showwarning("Eliminacion usuario", f"{respuesta[1]}")
-    
+
     def admin_consultar(self,):
+        """
+        Metodo administrador que invoca al metodo que consilta los datos 
+        """
         respuesta = self.obj.funcion_consultar(
                     self.tree,
                     self.var_mail,
@@ -150,6 +164,9 @@ class VistaAplicacion():
             showinfo("Busqueda", f"{respuesta[1]}")
 
     def admin_modificar(self,):
+        """
+        Metodo administrador que invoca al metodo que realiza la modificacion de los datos 
+        """
         respuesta = self.obj.funcion_modificar(
                     self.tree, 
                     self.master, 
@@ -162,12 +179,19 @@ class VistaAplicacion():
         if respuesta[0] == '2':
             showwarning("Modificacion", f"{respuesta[1]}")
         else:
+            self.boton_modificacion["state"] = DISABLED
+            self.boton_grabar["state"] = DISABLED
+            self.boton_consultar["state"] = DISABLED
+            self.boton_eliminar["state"] = DISABLED
             self.boton_cancelar = Button(master, text=" Cancelar ", bg="#DC324C", command=lambda:self.admin_cancelar(), width=10)
             self.boton_cancelar.grid(row=5, column=4,sticky='W')
             self.boton_guardar_cambio = Button(master, text=" Guardar ", bg="#4EDC32", command=lambda:self.admin_guardar_cambio(), width=10)
             self.boton_guardar_cambio.grid(row=5, column=3, sticky='W')
-    
+
     def admin_guardar_cambio(self,):
+        """
+        Metodo administrador que invoca al metodo que guarda los cambio en los datos 
+        """
         respuesta = self.obj.funcion_guardar_cambio(
                     self.tree, 
                     self.master, 
@@ -189,14 +213,18 @@ class VistaAplicacion():
             showwarning("Modificacion usuario", f"{respuesta[1]}")
 
     def admin_cancelar(self,):
-        blanqueo=Pantalla()
+        """
+        Metodo administrador que invoca al metodo que permite cancelar la accion de modificacion 
+        """
+        blanqueo = Pantalla()
         self.boton_cancelar.grid_forget()
         self.boton_guardar_cambio.grid_forget()
-        self.boton_modificacion["state"]=NORMAL
-        self.boton_grabar["state"]=NORMAL
-        self.boton_consultar["state"]=NORMAL
-        self.boton_eliminar["state"]=NORMAL
-        blanqueo.funcion_blanquear(self.tree,
+        self.boton_modificacion["state"] = NORMAL
+        self.boton_grabar["state"] = NORMAL
+        self.boton_consultar["state"] = NORMAL
+        self.boton_eliminar["state"] = NORMAL
+        blanqueo.funcion_blanquear(
+                    self.tree,
                     self.var_mail, 
                     self.var_nombre, 
                     self.var_apellido, 

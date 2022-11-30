@@ -130,45 +130,54 @@
 <dt class="sig sig-object py" id="modelo.Abm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Abm</span></span><a class="reference internal" href="_modules/modelo.html#Abm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase que maneja ABM</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abm.carga_categoria">
 <span class="sig-name descname"><span class="pre">carga_categoria</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.carga_categoria"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.carga_categoria" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo para cargar las categorias en el combobox</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abm.dar_id_categoria">
 <span class="sig-name descname"><span class="pre">dar_id_categoria</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">categoriabuscada</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.dar_id_categoria"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.dar_id_categoria" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo que devuleve el id y la descripcion de una categoria buscada</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abm.funcion_consultar">
 <span class="sig-name descname"><span class="pre">funcion_consultar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.funcion_consultar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.funcion_consultar" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo que devuelve los registros guardados en la base de datos de acuerdo a los parametros ingresados, sino ingresan datos devuelve todos</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abm.funcion_eliminar">
 <span class="sig-name descname"><span class="pre">funcion_eliminar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.funcion_eliminar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.funcion_eliminar" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo que permite eliminar un usuario</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abm.funcion_grabar">
 <span class="sig-name descname"><span class="pre">funcion_grabar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.funcion_grabar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.funcion_grabar" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo para guardar los datos de un nuevo usuario</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abm.funcion_guardar_cambio">
 <span class="sig-name descname"><span class="pre">funcion_guardar_cambio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.funcion_guardar_cambio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.funcion_guardar_cambio" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo que guarda las modificaciones en la base de datos</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abm.funcion_modificar">
 <span class="sig-name descname"><span class="pre">funcion_modificar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.funcion_modificar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.funcion_modificar" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo que permite modificar los datos de un usuario</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abm.poblar_categoria">
 <span class="sig-name descname"><span class="pre">poblar_categoria</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abm.poblar_categoria"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Abm.poblar_categoria" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo para insertar las categorias en la tabla categorias</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -215,10 +224,12 @@
 <dt class="sig sig-object py" id="modelo.Pantalla">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Pantalla</span></span><a class="reference internal" href="_modules/modelo.html#Pantalla"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Pantalla" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase que maneja evento de blanqueo de campos</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Pantalla.funcion_blanquear">
 <span class="sig-name descname"><span class="pre">funcion_blanquear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Pantalla.funcion_blanquear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Pantalla.funcion_blanquear" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo que blanquea los campos ingresados.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -226,12 +237,14 @@
 <dt class="sig sig-object py" id="modelo.Persona">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Persona</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Persona"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Persona" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase persona</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="modelo.RegistroLogError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">RegistroLogError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archivo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fecha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#RegistroLogError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.RegistroLogError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Clase para manejar los eventos de excepciones</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelo.RegistroLogError.BASE_DIR">
 <span class="sig-name descname"><span class="pre">BASE_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'C:\\Users\\l1000296\\Dropbox\\Learning-Utn-Aws\\Python\\Intermedio\\v2.tp_final_intermedio_orm_combobox_sin_idusuario'</span></em><a class="headerlink" href="#modelo.RegistroLogError.BASE_DIR" title="Permalink to this definition"></a></dt>
@@ -240,7 +253,8 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.RegistroLogError.registrar_error">
 <span class="sig-name descname"><span class="pre">registrar_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#RegistroLogError.registrar_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.RegistroLogError.registrar_error" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo para registrar la excepcion</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelo.RegistroLogError.ruta">
@@ -295,20 +309,24 @@
 <dt class="sig sig-object py" id="modelo.Validacion">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Validacion</span></span><a class="reference internal" href="_modules/modelo.html#Validacion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Validacion" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase que maneja los eventos de validacion de datos</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Validacion.funcion_validar_datos">
 <span class="sig-name descname"><span class="pre">funcion_validar_datos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mail</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apellido</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sexo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferencia</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Validacion.funcion_validar_datos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Validacion.funcion_validar_datos" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo que permite validar si todos los campos obligatorios estan cargados y si cumplen con los patrones esperados</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Validacion.funcion_validar_mail">
 <span class="sig-name descname"><span class="pre">funcion_validar_mail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mail</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Validacion.funcion_validar_mail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Validacion.funcion_validar_mail" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo que permite validar si el campo email esta en el formato esperado</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Validacion.funcion_validar_nombre">
 <span class="sig-name descname"><span class="pre">funcion_validar_nombre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Validacion.funcion_validar_nombre"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Validacion.funcion_validar_nombre" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Metodo que permite validar si el campo nombre contiene numeros</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -325,7 +343,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Ezequiel Suarez.</p>
+    <p>&#169; Copyright 2022, Ezequiel Suarez / Cesar Mariño.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

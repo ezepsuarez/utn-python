@@ -104,23 +104,37 @@
 
 
 <div class="viewcode-block" id="RegistroLogError"><a class="viewcode-back" href="../modelo.html#modelo.RegistroLogError">[docs]</a><span class="k">class</span> <span class="nc">RegistroLogError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clase para manejar los eventos de excepciones</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">((</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
     <span class="n">ruta</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;log_abm_usuario.txt&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linea</span><span class="p">,</span> <span class="n">archivo</span><span class="p">,</span> <span class="n">fecha</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor de la clase ReegistroLogError</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">linea</span> <span class="o">=</span> <span class="n">linea</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">archivo</span> <span class="o">=</span> <span class="n">archivo</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fecha</span> <span class="o">=</span> <span class="n">fecha</span>
 
 <div class="viewcode-block" id="RegistroLogError.registrar_error"><a class="viewcode-back" href="../modelo.html#modelo.RegistroLogError.registrar_error">[docs]</a>    <span class="k">def</span> <span class="nf">registrar_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo para registrar la excepcion</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">log</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ruta</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
         <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fecha</span><span class="p">,</span> <span class="s2">&quot;- ERROR - &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">archivo</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">linea</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Detalle Error: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">log</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="Persona"><a class="viewcode-back" href="../modelo.html#modelo.Persona">[docs]</a><span class="k">class</span> <span class="nc">Persona</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clase persona</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mail</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="p">,</span> <span class="n">sexo</span><span class="p">,</span> <span class="n">preferencia</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor de la clase persona.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mail</span> <span class="o">=</span> <span class="n">mail</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">apellido</span> <span class="o">=</span> <span class="n">apellido</span>
@@ -129,7 +143,13 @@
 
 
 <div class="viewcode-block" id="Abm"><a class="viewcode-back" href="../modelo.html#modelo.Abm">[docs]</a><span class="k">class</span> <span class="nc">Abm</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clase que maneja ABM</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="Abm.funcion_grabar"><a class="viewcode-back" href="../modelo.html#modelo.Abm.funcion_grabar">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_grabar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo para guardar los datos de un nuevo usuario</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">datospersona</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="n">var_mail</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_nombre</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_apellido</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_sexo</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_preferencia</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
         <span class="n">resultado</span> <span class="o">=</span> <span class="n">Validacion</span><span class="p">()</span>
         <span class="n">respuesta</span> <span class="o">=</span> <span class="n">resultado</span><span class="o">.</span><span class="n">funcion_validar_datos</span><span class="p">(</span><span class="n">datospersona</span><span class="o">.</span><span class="n">mail</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">apellido</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">sexo</span><span class="p">,</span> <span class="n">datospersona</span><span class="o">.</span><span class="n">preferencia</span><span class="p">)</span>
@@ -154,6 +174,9 @@
             <span class="k">return</span> <span class="p">[</span><span class="n">respuesta</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">respuesta</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span></div>
 
 <div class="viewcode-block" id="Abm.poblar_categoria"><a class="viewcode-back" href="../modelo.html#modelo.Abm.poblar_categoria">[docs]</a>    <span class="k">def</span> <span class="nf">poblar_categoria</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo para insertar las categorias en la tabla categorias</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">lista_categoria</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Viajes&#39;</span><span class="p">,</span><span class="s1">&#39;Moda&#39;</span><span class="p">,</span><span class="s1">&#39;Motos&#39;</span><span class="p">,</span><span class="s1">&#39;Autos&#39;</span><span class="p">,</span><span class="s1">&#39;Noticias&#39;</span><span class="p">,</span><span class="s1">&#39;Juegos&#39;</span><span class="p">,</span><span class="s1">&#39;Deportes&#39;</span><span class="p">,</span><span class="s1">&#39;Comidas&#39;</span><span class="p">,</span><span class="s1">&#39;Compras&#39;</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lista_categoria</span><span class="p">:</span>
             <span class="n">categoria</span> <span class="o">=</span> <span class="n">Categoria</span><span class="p">()</span>
@@ -165,6 +188,9 @@
                 <span class="n">log</span><span class="o">.</span><span class="n">registrar_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Abm.carga_categoria"><a class="viewcode-back" href="../modelo.html#modelo.Abm.carga_categoria">[docs]</a>    <span class="k">def</span> <span class="nf">carga_categoria</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo para cargar las categorias en el combobox</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">categoria</span> <span class="o">=</span> <span class="n">Categoria</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">categoria</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">poblar_categoria</span><span class="p">()</span>
@@ -172,10 +198,16 @@
         <span class="k">return</span> <span class="n">categoria</span></div>
 
 <div class="viewcode-block" id="Abm.dar_id_categoria"><a class="viewcode-back" href="../modelo.html#modelo.Abm.dar_id_categoria">[docs]</a>    <span class="k">def</span> <span class="nf">dar_id_categoria</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">categoriabuscada</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo que devuleve el id y la descripcion de una categoria buscada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">sql</span> <span class="o">=</span> <span class="n">Categoria</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">Categoria</span><span class="o">.</span><span class="n">descripcion_categoria</span> <span class="o">==</span> <span class="n">categoriabuscada</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">sql</span></div>
 
 <div class="viewcode-block" id="Abm.funcion_consultar"><a class="viewcode-back" href="../modelo.html#modelo.Abm.funcion_consultar">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_consultar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo que devuelve los registros guardados en la base de datos de acuerdo a los parametros ingresados, sino ingresan datos devuelve todos</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">get_children</span><span class="p">():</span>
             <span class="n">tree</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">var_nombre</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">var_mail</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">var_apellido</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">var_sexo</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">var_preferencia</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="p">):</span>
@@ -191,6 +223,9 @@
             <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;OK&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="Abm.funcion_eliminar"><a class="viewcode-back" href="../modelo.html#modelo.Abm.funcion_eliminar">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_eliminar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo que permite eliminar un usuario</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">item</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
             <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;Debe seleccion un usuario a eliminar&#39;</span><span class="p">]</span>
@@ -210,6 +245,9 @@
                 <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="Abm.funcion_modificar"><a class="viewcode-back" href="../modelo.html#modelo.Abm.funcion_modificar">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_modificar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">mail</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="p">,</span> <span class="n">sexo</span><span class="p">,</span> <span class="n">preferencia</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo que permite modificar los datos de un usuario</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">item</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;Debe seleccion un usuario a modificar&#39;</span><span class="p">]</span>
@@ -226,6 +264,9 @@
             <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;ok&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="Abm.funcion_guardar_cambio"><a class="viewcode-back" href="../modelo.html#modelo.Abm.funcion_guardar_cambio">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_guardar_cambio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo que guarda las modificaciones en la base de datos</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">item</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
         <span class="nb">id</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span>
         <span class="n">datospersona</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="n">var_mail</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_nombre</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_apellido</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_sexo</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">var_preferencia</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
@@ -247,7 +288,13 @@
             <span class="k">return</span> <span class="p">[</span><span class="n">respuesta</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">respuesta</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span></div></div>
 
 <div class="viewcode-block" id="Validacion"><a class="viewcode-back" href="../modelo.html#modelo.Validacion">[docs]</a><span class="k">class</span> <span class="nc">Validacion</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clase que maneja los eventos de validacion de datos</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="Validacion.funcion_validar_nombre"><a class="viewcode-back" href="../modelo.html#modelo.Validacion.funcion_validar_nombre">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_validar_nombre</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo que permite validar si el campo nombre contiene numeros</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">patron</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[A-Za-z]+(?:[ _-][A-Za-z]+)*$&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">patron</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">nombre</span><span class="p">)):</span>
             <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;OK&#39;</span><span class="p">]</span>
@@ -255,6 +302,9 @@
             <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="s1">&#39;El nombre ingresado no puede contener numeros&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="Validacion.funcion_validar_mail"><a class="viewcode-back" href="../modelo.html#modelo.Validacion.funcion_validar_mail">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_validar_mail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mail</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo que permite validar si el campo email esta en el formato esperado        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">patron</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(&lt;)?(\w+@\w+(?:\.[a-z]+)+)(?(1)&gt;|$)&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">patron</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">mail</span><span class="p">)):</span>
             <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;OK&#39;</span><span class="p">]</span>
@@ -262,6 +312,9 @@
             <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;El email ingresado no esta en el formato esperado </span><span class="se">\n</span><span class="s1">Formato: user@domino.com&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="Validacion.funcion_validar_datos"><a class="viewcode-back" href="../modelo.html#modelo.Validacion.funcion_validar_datos">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_validar_datos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mail</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="p">,</span> <span class="n">sexo</span><span class="p">,</span> <span class="n">preferencia</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo que permite validar si todos los campos obligatorios estan cargados y si cumplen con los patrones esperados</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">nombre</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">mail</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">apellido</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">sexo</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">preferencia</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="p">):</span>
             <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="s1">&#39;Falta ingresar datos obligatorios</span><span class="se">\n</span><span class="s1"> Datos obligatorios: [Email - Nombre - Apellido - Sexo - Preferencia].&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>  
@@ -275,7 +328,13 @@
 
 
 <div class="viewcode-block" id="Pantalla"><a class="viewcode-back" href="../modelo.html#modelo.Pantalla">[docs]</a><span class="k">class</span> <span class="nc">Pantalla</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clase que maneja evento de blanqueo de campos</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="Pantalla.funcion_blanquear"><a class="viewcode-back" href="../modelo.html#modelo.Pantalla.funcion_blanquear">[docs]</a>    <span class="k">def</span> <span class="nf">funcion_blanquear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">var_mail</span><span class="p">,</span> <span class="n">var_nombre</span><span class="p">,</span> <span class="n">var_apellido</span><span class="p">,</span> <span class="n">var_sexo</span><span class="p">,</span> <span class="n">var_preferencia</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo que blanquea los campos ingresados.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">var_mail</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="n">var_nombre</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="n">var_apellido</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
